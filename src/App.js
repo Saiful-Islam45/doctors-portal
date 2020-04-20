@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Homepage from './Components/Homepage/Homepage';
+
+import '@material/react-material-icon/dist/material-icon.css';
+import Header from './Components/Header/Header';
+import CalendarPicker from './Components/CalendarPicker/CalendarPicker';
+
 
 function App() {
+  const [date,setDate]= useState()
+  const dateHandler = (date)=>{
+    setDate(date);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path = "/">
+            <Homepage></Homepage>
+          </Route>
+          <Route path="/avaliableAppointments">
+          <div id="main-home-page">
+                <section class="main-home">
+                    <div class="container-fluid pl-4">
+                      <header>
+                        <Header></Header>
+                        <CalendarPicker dateHandler={dateHandler}></CalendarPicker>
+                      </header>
+                      </div>
+                </section>
+            </div>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
