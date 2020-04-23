@@ -17,7 +17,7 @@ const Dashboard = () => {
     }, [])
     const pendingAppointments = []
     appointments.filter(appointment => {
-        appointment.status === "pending" &&
+        appointment.status == "pending" &&
             pendingAppointments.push(appointment);
     })
     const todayAppointment = []

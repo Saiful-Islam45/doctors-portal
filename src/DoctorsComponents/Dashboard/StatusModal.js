@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 const StatusModal = (props) => {
   const { handleSubmit, register} = useForm()
     const onSubmit = (data, e) => {
-        fetch('https://doctors-portal-node-mongo.herokuapp.com/updateStatus', {
+        fetch('https://doctors-portal-saiful.herokuapp.com/updateStatus', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -30,10 +30,10 @@ const StatusModal = (props) => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form" id="form">
                             <div className="form-group d-none">
-                                <input type="text" value={props.appointment._id} className="form-control text-uppercase" name="id" ref={register({ required: true })}/>
+                                <input type="text" value={props.appointment._id} className="form-control " name="id" ref={register({ required: true })}/>
                             </div>
                             <div className="form-group">
-                                <select id="inputState" name="status" className="form-control text-uppercase" ref={register({ required: true })}>
+                                <select id="inputState" name="status" className="form-control" ref={register({ required: true })}>
                                     <option>approved</option>
                                     <option>canceled</option>
                                 </select>
@@ -41,7 +41,7 @@ const StatusModal = (props) => {
                         </div>
                         <div className="d-flex flex-items justify-content-end">
                             <button type="button" className="btn btn-secondary px-5 mr-3" data-dismiss="modal">Close</button>
-                            <button type="submit" className="btn btn-primary text-uppercase primary-btn px-5">Update</button>
+                            <button type="submit" className="btn btn-primary  primary-btn px-5">Update</button>
                         </div>
                     </form>
                 </div>

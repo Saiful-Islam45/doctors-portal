@@ -23,7 +23,7 @@ const DoctorAppointment = (props) => {
         setFilterAppointments(filterArray)
     },[date,props,appointments])
     const visitHandler = (e,id) => {
-        fetch('https://doctors-portal-node-mongo.herokuapp.com/updateVisited', {
+        fetch('https://doctors-portal-saiful.herokuapp.com/updateVisited', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

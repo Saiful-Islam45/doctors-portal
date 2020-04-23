@@ -15,13 +15,12 @@ const Prescription = () => {
     useEffect(() => {
         const filterArray = []
         appointments.filter(appointment => {
-            
-                filterArray.push(appointment)
-            
+            if (appointment.prescription !== null) {
+                filterArray.push(appointment);
+            }
         })
         setFilterAppointments(filterArray)
     }, [appointments])
-    console.log(filterAppointments);
     
     return (
         <div className="col-md-10 p-4">
