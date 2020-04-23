@@ -1,0 +1,39 @@
+[{
+    "name":"Rohim",
+    "phone":"01714723653",
+    "email":"rodim@gmail.com",
+    "age":"5",
+    "weight":"5",
+    "gender":"male",
+    "address":"Dhaka"
+    },
+{
+    "name":"Korim",
+    "phone":"01840815555",
+    "email":"korim@gmail.com",
+    "age":"5",
+    "weight":"5",
+    "gender":"male",
+    "address":"Cumilla"
+    },
+{
+    "name":"Sondip",
+    "phone":"01984542455",
+    "email":"sondi[@gmail.com",
+    "age":"5",
+    "weight":"5",
+    "gender":"male",
+    "address":"Mirpur"
+
+    },
+{
+    "name":"Korim",
+    "phone":"01840815555",
+    "email":"korim@gmail.com",
+    "age":"5",
+    "weight":"5",
+    "gender":"male",
+    "address":"Cumilla"
+    }
+
+]

@@ -7,45 +7,51 @@ const Homepage = () => {
     return (
         <div>
             <div id="main-home-page">
-                <section class="main-home">
-                    <div class="container-fluid pl-4">
+                <section className="main-home">
+                    <div className="container-fluid pl-4">
                         <header>
-                            <nav class="navbar navbar-expand-lg navbar-light" id="main-home-navbar">
-                                <div class="collapse navbar-collapse " id="navbarNav">
-                                    <ul class="navbar-nav ml-auto">
-                                        <li class="nav-item active">
-                                            <a class="nav-link main-home-nav" href="#">Home <span class="sr-only">(current)</span></a>
+                            <nav className="navbar navbar-expand-lg navbar-light" id="main-home-navbar">
+                                <div className="collapse navbar-collapse " id="navbarNav">
+                                    <ul className="navbar-nav ml-auto">
+                                       
+                                       <li className="nav-item active">
+                                       <Link className="nav-link main-home-nav" to="/">
+                                          Home <span className="sr-only">(current)</span>
+                                            </Link>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link main-home-nav" href="#">About</a>
+                                       
+                                        <li className="nav-item">
+                                            <a className="nav-link main-home-nav" href="#">About</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link main-home-nav" href="#">Dental Service</a>
+                                        <li className="nav-item">
+                                            <a className="nav-link main-home-nav" href="#">Dental Service</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link main-home-nav text-white" href="#">Reviews</a>
+                                        <Link to ="/doctorsDashboard">
+                                        <li className="nav-item">
+                                            <a className="nav-link main-home-nav text-white" href="#">Doctors Corner</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link main-home-nav text-white" href="#">Blog</a>
+                                        </Link>
+                                        <li className="nav-item">
+                                            <a className="nav-link main-home-nav text-white" href="#">Blog</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link main-home-nav text-white" href="#">Contact Us</a>
+                                        <li className="nav-item">
+                                            <a className="nav-link main-home-nav text-white" href="#">Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
                             </nav>
-                            <section class="header-content">
-                                <div class="row">
-                                    <div class="col-xl-5">
-                                        <div class="sidebar-content">
-                                            <h2 class="text-capitalize fwb">Your new smile <br /> starts here</h2>
-                                            <p class="py-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi veniam optio
+                            <section className="header-content">
+                                <div className="row">
+                                    <div className="col-xl-5">
+                                        <div className="sidebar-content">
+                                            <h2 className="text-capitalize fwb">Your new smile <br /> starts here</h2>
+                                            <p className="py-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi veniam optio
                                             consectetur quod beatae, atque quae ipsam, alias est reprehenderit debitis explicabo itaque pariatur nisi!</p>
-                                            <Link to="/avaliableAppoinments"><button type="button" class="btn mybtn ">GET APPOINTMENT</button></Link>
+                                            <Link to="/avaliableAppointments"><button type="button" className="btn mybtn ">GET APPOINTMENT</button></Link>
                                         </div>
                                     </div>
-                                    <div class="col-xl-7">
-                                        <div class="sidebar-image mr-2">
+                                    <div className="col-xl-7">
+                                        <div className="sidebar-image mr-2">
 
                                         </div>
                                     </div>
@@ -54,31 +60,31 @@ const Homepage = () => {
                         </header>
                     </div>
                 </section>
-                <section class="header-bottom-content-aria">
-                    <div class="container">
-                        <div class="row pr-4 mr-4">
-                            <div class="col-md-4 mb-3 ">
-                                <div class="d-flex  py-4 home-primary rounded  align-items-center">
-                                    <h6 class="w-50 text-center "><span class="material-icons main-home-icon">query_builder</span></h6>
-                                    <div class="home-icons-container">
+                <section className="header-bottom-content-aria">
+                    <div className="container">
+                        <div className="row pr-4 mr-4">
+                            <div className="col-md-4 mb-3 ">
+                                <div className="d-flex  py-4 home-primary rounded  align-items-center">
+                                    <h6 className="w-50 text-center "><span className="material-icons main-home-icon">query_builder</span></h6>
+                                    <div className="home-icons-container">
                                         <h6>Opening Hours</h6>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3  home-location ">
-                                <div class="d-flex   py-4 rounded align-items-center">
-                                    <h6 class="w-50 text-center "><span class="material-icons main-home-icon">location_on</span></h6>
-                                    <div class="home-icons-container">
+                            <div className="col-md-4 mb-3  home-location ">
+                                <div className="d-flex   py-4 rounded align-items-center">
+                                    <h6 className="w-50 text-center "><span className="material-icons main-home-icon">location_on</span></h6>
+                                    <div className="home-icons-container">
                                         <h6>Visit Our Location</h6>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3 ">
-                                <div class="d-flex  py-4 rounded align-items-center home-primary">
-                                    <h6 class="w-50 text-center "><span class="material-icons main-home-icon">add_ic_call</span></h6>
-                                    <div class="home-icons-container">
+                            <div className="col-md-4 mb-3 ">
+                                <div className="d-flex  py-4 rounded align-items-center home-primary">
+                                    <h6 className="w-50 text-center "><span className="material-icons main-home-icon">add_ic_call</span></h6>
+                                    <div className="home-icons-container">
                                         <h6>Contact Us Now</h6>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                                     </div>

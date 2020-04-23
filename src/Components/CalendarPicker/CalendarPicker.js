@@ -43,11 +43,11 @@ const CalendarPicker = (props)=> {
 
         return (
             <div>
-              <section class="header-content">
-            <div class="row">
-              <div class="col-xl-5">
-                <div class="sidebar-content">
-                  <h2 class="text-capitalize fwb">Appointment</h2>
+              <section className="header-content">
+            <div className="row">
+              <div className="col-xl-5">
+                <div className="sidebar-content">
+                  <h2 className="text-capitalize fwb">Appointment</h2>
                   <Calendar value={date} onChange={(e) => {setDate(e.value);formateDateF(e.value);}} inline={true} id="calendarPicker"/>
                     {
                         error === true &&
@@ -59,8 +59,8 @@ const CalendarPicker = (props)=> {
                  
                 </div>
               </div>
-              <div class="col-xl-7">
-                <div class="sidebar-image mr-2">
+              <div className="col-xl-7">
+                <div className="sidebar-image mr-2">
 
                 </div>
               </div>

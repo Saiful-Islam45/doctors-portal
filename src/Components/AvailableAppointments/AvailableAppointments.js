@@ -1,140 +1,54 @@
-import React from 'react';
-import Header from '../Header/Header';
+import React, { useState, useEffect } from 'react';
+import Spinner from '../../resources/images/spinner_1.gif';
+import ModalForm from '../ModalForm/ModalForm';
 
-const AvailableAppointments = () => {
-    return (
-        <div>
-            <div id="main-home-page">
-    <section class="main-home">
-      <div class="container-fluid">
-        <header>
-          
-          <section class="header-content">
-            <div class="row">
-              <div class="col-xl-5">
-                <div class="sidebar-content">
-                  <h2 class="text-capitalize fwb">Your new smile <br/> starts here</h2>
-                  <p class="py-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi veniam optio
-                    consectetur quod beatae, atque quae ipsam, alias est reprehenderit debitis explicabo itaque pariatur
-                    nisi!</p>
-                  <button type="button" class="btn mybtn ">GET APPOINTMENT</button>
-                </div>
-              </div>
-              <div class="col-xl-7">
-                <div class="sidebar-image mr-2">
+const AvailableAppointments = (props) => {
+  const [appointments, setAppointments] = useState([])
+  const next = new Date();
+  next.setDate(new Date().getDate() + 1);
+  next.setMinutes(next.getMinutes() - next.getTimezoneOffset());
+  const date = JSON.stringify(next).slice(1, 11);
+  useEffect(() => {
+    fetch("https://doctors-portal-saiful.herokuapp.com/availableAppointments")
+      .then(res => res.json())
+      .then(data => {
+        setAppointments(data)
+        console.log(data);
 
-                </div>
-              </div>
+        document.getElementById('spinner').style.display = "none";
+      })
+  }, [])
+  return (
+    <div>
+      <div>
+        <section className="header-bottom-content-aria my-4 bg-mask">
+          <div className="container-fluid justify-align-center text-center mt-4">
+            <h3 className="primary-color">Available Appointments on {props.date ? props.date : date}</h3>
+            <div className="col-12 my-5">
+              <img className="img-fluid mx-auto" id="spinner" src={Spinner} alt="spinner" />
             </div>
-          </section>
-        </header>
+            <div className="row">
+              {
+                appointments.map(schedule => {
+                  return <div className="col-md-4 p-4" key={schedule._id}>
+                    <div className="card p-3 border-0 shadow">
+                      <div className="card-body">
+                        <h5 className="card-title primary-color">{schedule.title}</h5>
+                        <p className="card-text">{schedule.time}</p>
+                        <p className="card-text">{schedule.space} SPACES AVAILABLE</p>
+                        <button type="button" class="btn primary-btn font-weight-bold" data-toggle="modal" data-target={"#exampleModal"+schedule._id}>Book Appointment</button>
+                      </div>
+                    </div>
+                    <ModalForm date={props.date ? props.date : date} schedule={schedule} key={schedule._id}></ModalForm>
+                  </div>
+                })
+              }
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-    <section class="header-bottom-content-aria">
-      <div class="container">
-        <div class="row">
-          <div class="col-4 mb-4 mt-4">
-            <div class="appointments-item">
-              <div class="card py-4 text-center shadow">
-                <div class="card-body">
-                  <h6 class="card-title fwb cp">Teeth Orthodontics </h6>
-                  <h6 class="card-time fwb">8:00 AM - 9:00 AM</h6>
-                  <p class="card-subtitle mb-2 mt-2 text-muted">10 Space Available</p>
-                  <a href="#" class="btn appointments-item-btn">Book appointment</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 mb-4 mt-4">
-            <div class="appointments-item">
-              <div class="card py-4 text-center shadow">
-                <div class="card-body">
-                  <h6 class="card-title fwb cp">Teeth Orthodontics </h6>
-                  <h6 class="card-time fwb">8:00 AM - 9:00 AM</h6>
-                  <p class="card-subtitle mb-2 mt-2 text-muted">10 Space Available</p>
-                  <a href="#" class="btn appointments-item-btn">Book appointment</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 mb-4 mt-4">
-            <div class="appointments-item">
-              <div class="card py-4 text-center shadow">
-                <div class="card-body">
-                  <h6 class="card-title fwb cp">Teeth Orthodontics </h6>
-                  <h6 class="card-time fwb">8:00 AM - 9:00 AM</h6>
-                  <p class="card-subtitle mb-2 mt-2 text-muted">10 Space Available</p>
-                  <a href="#" class="btn appointments-item-btn">Book appointment</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 mb-4 mt-4">
-            <div class="appointments-item">
-              <div class="card py-4 text-center shadow">
-                <div class="card-body">
-                  <h6 class="card-title fwb cp">Teeth Orthodontics </h6>
-                  <h6 class="card-time fwb">8:00 AM - 9:00 AM</h6>
-                  <p class="card-subtitle mb-2 mt-2 text-muted">10 Space Available</p>
-                  <a href="#" class="btn appointments-item-btn">Book appointment</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 mb-4 mt-4">
-            <div class="appointments-item">
-              <div class="card py-4 text-center shadow">
-                <div class="card-body">
-                  <h6 class="card-title fwb cp">Teeth Orthodontics </h6>
-                  <h6 class="card-time fwb">8:00 AM - 9:00 AM</h6>
-                  <p class="card-subtitle mb-2 mt-2 text-muted">10 Space Available</p>
-                  <a href="#" class="btn appointments-item-btn">Book appointment</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 mb-4 mt-4">
-            <div class="appointments-item">
-              <div class="card py-4 text-center shadow">
-                <div class="card-body">
-                  <h6 class="card-title fwb cp">Teeth Orthodontics </h6>
-                  <h6 class="card-time fwb">8:00 AM - 9:00 AM</h6>
-                  <p class="card-subtitle mb-2 mt-2 text-muted">10 Space Available</p>
-                  <a href="#" class="btn appointments-item-btn">Book appointment</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 mb-4 mt-4">
-            <div class="appointments-item">
-              <div class="card py-4 text-center shadow">
-                <div class="card-body">
-                  <h6 class="card-title fwb cp">Teeth Orthodontics </h6>
-                  <h6 class="card-time fwb">8:00 AM - 9:00 AM</h6>
-                  <p class="card-subtitle mb-2 mt-2 text-muted">10 Space Available</p>
-                  <a href="#" class="btn appointments-item-btn">Book appointment</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4 mb-4 mt-4">
-            <div class="appointments-item">
-              <div class="card py-4 text-center shadow">
-                <div class="card-body">
-                  <h6 class="card-title fwb cp">Teeth Orthodontics </h6>
-                  <h6 class="card-time fwb">8:00 AM - 9:00 AM</h6>
-                  <p class="card-subtitle mb-2 mt-2 text-muted">10 Space Available</p>
-                  <a href="#" class="btn appointments-item-btn">Book appointment</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
-  </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default AvailableAppointments;
